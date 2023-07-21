@@ -1,0 +1,39 @@
+1. Clonar el proyecto
+
+2. Instale las dependencias del proyecto, abra la terminal y redirijase a la direccion del proyecto clonado y ejecute el siguiente comando
+
+```
+yarn
+```
+
+3. El archivo ```.env.template``` renombrar a ```.env```
+4. El archivo ```.env``` ingresar los valores correspondientes a las variables, ejemplo
+
+```
+VITE_API_URL=http://autonomias.lapaz.gob.bo/api
+```
+Esta variable es muy importante por que trabajara con el backend para hacer peticiones http, como tambien debe revizar
+si a su servidores se le dio el certificado ```SSL``` trabajar con ```https```
+
+5. Para ejecutar en desarrollo ejecutar el siguiente comando se ejecutara en `localhost:5173`
+```
+yarn dev
+```
+6. Si ve que hay algun problema verifique la consola del navegador, posibles errores 
+*  la variable de entorno VITE_API_URL, no es correcta ya que no responde el servidor
+*  verifique si se le dieron el certificado SSL, si es si trabajar con https, si no http
+
+7. Para desplegar en modo producción ejecute el siguiente comando
+```yarn build```
+esto generar en la raiz el directorio `dist`, los archivos de este direcctorios deben copiarse en el la carpeta `public` del servidor
+*   Una ves copiado en el servidor los archivos del directorio `dist` no hay comando para ejecutarlo, el servidor tomara el archivo index.html
+
+8. Recomendaciones
+*   no borre la carpeta `.git`.
+*   si realiza algun cambio trabaje en una rama que no sea el `main`, a menos que este seguro de lo que esta realizando.
+*   todo cambio realize su commit correspondiente con su rama.
+
+9. Extras
+La carpeta `mapas` contiene los archivos de SIG, que se muestran en el simred tanto de las 7 regiones como de los 87 municipios
+todo cambio de algun archivo debe guardase con el mismo nombre, para que no exista error `Not found` que react no lo encuentre por el cambio de nombre 
+ya que no correspondera el path configurado.
